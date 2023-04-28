@@ -27,4 +27,7 @@ public interface NameDao {
 
     @Query("SELECT name FROM table_name")
     Flowable<List<String>> getAllName();
+
+    @Query("SELECT name FROM table_name WHERE name  LIKE '%' || :searchQuery || '%'")
+    Flowable<List<String>> searchNames(String searchQuery);
 }

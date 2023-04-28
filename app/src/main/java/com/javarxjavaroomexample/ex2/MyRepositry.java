@@ -27,6 +27,10 @@ public class MyRepositry{
         return dao.getAllName();
     }
 
+    public Flowable<List<String>> searchNames(String name){
+        return dao.searchNames(name);
+    }
+
     public Completable insertName(Name name){
         return dao.insert(name);
     }

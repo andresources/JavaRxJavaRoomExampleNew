@@ -33,4 +33,8 @@ public class MyViewModel extends AndroidViewModel {
     public Completable addName(String str){
         return repo.insertName(new Name(str));
     }
+
+    public Flowable<List<String>> searchNames(String name){
+        return repo.searchNames(name).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
 }
